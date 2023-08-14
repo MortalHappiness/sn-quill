@@ -32,24 +32,65 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.sn-component {
-  display: flex;
-  flex-direction: column;
-  font-size: var(--sn-stylekit-font-size-editor);
-  min-height: 100vh;
-  @media screen and (max-width: 420px) {
-    min-height: -webkit-fill-available;
+.editor {
+  /* Fix no icons for header 3 to 6 */
+  /* https://github.com/quilljs/quill/issues/1730#issuecomment-886249690 */
+  button.ql-header svg {
+    display: none;
   }
 
-  .sk-input.textarea {
-    padding: 9px 10px;
-    max-width: inherit;
-    width: calc(100% - 22px);
-    resize: vertical;
-    overflow-y: auto;
-    font-family: var(--sn-stylekit-sans-serif-font);
+  .ql-header[value='3']:after {
+    clear: both;
+    content: 'H3';
+    display: table;
+    font-weight: 600;
+    margin-top: -2px;
+    margin-left: 1px;
+    font-size: 14px;
+  }
+
+  .ql-header[value='2']:after {
+    clear: both;
+    content: 'H2';
+    display: table;
+    font-weight: 600;
+    margin-top: -2px;
+    margin-left: 1px;
+    font-size: 14px;
+  }
+
+  .ql-header[value='1']:after {
+    clear: both;
+    content: 'H1';
+    display: table;
+    font-weight: 600;
+    margin-top: -2px;
+    margin-left: 1px;
+    font-size: 14px;
+  }
+
+  button.ql-header.ql-active {
+    color: #3891d0;
+  }
+
+  .ql-editor {
     font-size: var(--sn-stylekit-font-size-editor);
-    line-height: 1.7;
+  }
+
+  .ql-container {
+    border: 0;
+  }
+
+  .ql-snow.ql-toolbar {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+.hide-toolbar {
+  .ql-snow.ql-toolbar {
+    display: none;
   }
 }
 
@@ -76,5 +117,4 @@ p {
   padding: 0px 1em;
 }
 
-@import './print.scss';
 @import './dark.scss';
