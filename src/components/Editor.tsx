@@ -90,7 +90,7 @@ export default class Editor extends React.Component<{}, EditorInterface> {
     };
 
     this.editorKit = new EditorKit(delegate, {
-      mode: 'plaintext',
+      mode: 'html',
     });
   };
 
